@@ -1,0 +1,60 @@
+export PATH=$PATH:/usr/local/Cellar/node/11.11.0/bin
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+################ ALISES ####################
+alias stage="ENV_TYPE=STAGING npm run dev"
+alias prod="ENV_TYPE=PRODUCTION npm run dev"
+alias c=clear
+alias watch="npm run watch"
+alias staging="npm run server"
+alias production="npm run start:prod"
+
+
+############# TERMINAL PROMPT CUSTOMIZE #################
+ function parse_git_branch {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  }
+
+function prompt {
+    # Define the prompt character
+    local   CHAR="🌙"
+
+    # Define some local colors
+    local   RED="\[\e[1;35m\]"
+    local   BLUE="\[\e[1;36m\]"
+    local   GREEN="\[\e[0;32m\]"
+    local   GRAY_TEXT_BLUE_BACKGROUND="\[\e[\033[0m\]"
+
+    # Define a variable to reset the text color
+    local   RESET="\[\e[0m\]"
+
+    # ♥ ☆ - Keeping some cool ASCII Characters for reference
+
+    # Here is where we actually export the PS1 Variable which stores the text for your prompt
+    export PS1="\[\e]2;\u@\h\a[$GRAY_TEXT_BLUE_BACKGROUND\t$RESET]$RED\$(parse_git_branch) $GREEN\W\n$BLUE//$RED $CHAR $RESET"
+      PS2='> '
+      PS4='+ '
+    }
+
+  # Finally call the function and our prompt is all pretty
+  prompt
+
+  ############# TERMINAL PROMPT CUSTOMIZE #################
+
+
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
